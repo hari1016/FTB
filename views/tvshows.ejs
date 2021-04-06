@@ -1,0 +1,17 @@
+<% layout('../layouts/boilerplate1')%>
+
+<div class="contain">
+    <h3 class="my-4">Trending TV shows:</h3>
+    <div class="box">
+        <% for(let tv of trendingTv){ %>
+            <a class="content overflow-hidden"  style="background-image: url('https://image.tmdb.org/t/p/w300<%=tv.poster_path%>');" href="/search/tv/<%=tv.id%>">
+                <!-- <img src="https://image.tmdb.org/t/p/w300<%=tv.poster_path%>" alt=""> -->
+                <div class="details m-4">
+                    <h5><%= tv.name %></h5>
+                    <h5 style="color: turquoise;"><%= tv.vote_average %>/10</h5>
+                    <p><%= tv.overview %></p>
+                </div>
+            </a>
+        <% } %>
+    </div>
+</div>

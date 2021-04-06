@@ -1,0 +1,46 @@
+<% layout('../layouts/boilerplate3')%>
+
+<div class="container">
+    <h2 class="mb-3 ">Sign up</h2>
+    <form class="row g-3" action="/login" method="POST">
+        <div class="col-md-6">
+            <label for="username" class="form-label">User Name</label>
+            <input type="text" class="form-control" name="username" id="username" placeholder="User Name">
+        </div>
+        <div class="col-md-6">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" name="email" id="email" placeholder="Email-ID">
+        </div>
+        <div class="col-md-6">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+        </div>
+        <div class="col-md-6">
+            <label for="cpassword" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" name="cpassword" id="cpassword" placeholder="Confirm Password">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">Address</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+        </div>
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">City</label>
+          <input type="text" class="form-control" id="inputCity">
+        </div>
+        <div class="col-md-4">
+          <label for="inputState" class="form-label">State</label>
+          <input type="text" class="form-control" id="inputState">
+        </div>
+        <div class="col-md-2">
+          <label for="inputZip" class="form-label">Zip</label>
+          <input type="text" class="form-control" id="inputZip">
+        </div>
+        <div class="col-12">
+          <input type="submit" class="btn btn-primary" value="Sign in">
+        </div>
+        <p>
+            Go back to <a href="/login">login</a> page.
+        </p>
+      </form>
+      
+</div>

@@ -1,0 +1,18 @@
+<% layout('../layouts/boilerplate1')%>
+
+<h3 class="m-4">Search results for "<%=query%>":</h3>
+<div class="content container">
+  <% for(let movie of search){ %>
+    <div class="my-4">
+      <% if(movie.title){ %>
+      <a href="/search/movie/<%=movie.id%>">
+        <img src="https://image.tmdb.org/t/p/w300<%=movie.poster_path%>" alt="">
+      </a>
+      <% } else{%>
+        <a href="/search/tv/<%=movie.id%>">
+          <img src="https://image.tmdb.org/t/p/w300<%=movie.poster_path%>" alt="">
+        </a>
+      <% } %>   
+    </div>
+  <% } %>  
+</div>
