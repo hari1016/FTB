@@ -1,6 +1,7 @@
 <% layout('../layouts/boilerplate2')%>
 
 <div class="container back" >
+    <%- include('../layouts/flash')  %>
     <div class="content">
         <div class="row">
             <div class="col-1"></div>
@@ -9,9 +10,9 @@
             </div>
             <div class="col-6 my-5" style="color: white;">
                 <% if(searched.title){ %>
-                    <h1 style="color: rgb(96, 231, 84);""><%= searched.title %></h1>
+                    <h1 style="color: rgb(213, 5, 255);""><%= searched.title %></h1>
                 <% } else{%>
-                    <h1 style="color: rgb(141, 224, 64);""><%= searched.name %></h1>
+                    <h1 style="color: rgb(213, 5, 255);""><%= searched.name %></h1>
                 <% } %>
                 <h5><%= searched.release_date %></h5>
                 <h4 class="my-4" style="color: turquoise;"><%= searched.vote_average %>/10 (<span><%= searched.vote_count %> Votes</span>)</h4>
@@ -33,11 +34,56 @@
                         <% } %>
                     </form>    
                 <% } %>      
+                <h5 class="mt-5">Give rating:</h5>
+                <% if(searched.title){ %>
+                <form action="/rating/movie/<%=searched.id%>" method="POST">
+                <% } else{%>
+                <form action="/rating/tv/<%=searched.id%>" method="POST">
+                <% } %>    
+                    <fieldset class="starability-basic">
+
+                      <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+                
+                      <input type="radio" id="rate1" name="rating" value="1" />
+                      <label for="rate1">1 star.</label>
+                
+                      <input type="radio" id="rate2" name="rating" value="2" />
+                      <label for="rate2">2 stars.</label>
+                
+                      <input type="radio" id="rate3" name="rating" value="3" />
+                      <label for="rate3">3 stars.</label>
+                
+                      <input type="radio" id="rate4" name="rating" value="4" />
+                      <label for="rate4">4 stars.</label>
+                
+                      <input type="radio" id="rate5" name="rating" value="5" />
+                      <label for="rate5">5 stars.</label>
+
+                      <input type="radio" id="rate6" name="rating" value="6" />
+                      <label for="rate6">6 stars.</label>
+
+                      <input type="radio" id="rate7" name="rating" value="7" />
+                      <label for="rate7">7 stars.</label>
+
+                      <input type="radio" id="rate8" name="rating" value="8" />
+                      <label for="rate8">8 stars.</label>
+
+                      <input type="radio" id="rate9" name="rating" value="9" />
+                      <label for="rate9">9 stars.</label>
+
+                      <input type="radio" id="rate10" name="rating" value="10" />
+                      <label for="rate10">10 stars.</label>
+                
+                      <span class="starability-focus-ring"></span>
+                      <button class="btn btn-success mt-3" type="submit">Submit</button>
+                    </fieldset>
+                  </form>
             </div>
+            
             <div class="col"></div>
         </div>
         <div class="container mt-5">
-            <h4 class="mb-3" style="color:rgb(141, 224, 64);">Add your review:</h4>
+            <h4 class="mb-3" style="color:rgb(213, 5, 255);">Add your review:</h4>
             <% if(searched.title){ %>
             <form action="/search/movie/<%=searched.id%>" method="post">
             <% } else{%>
@@ -48,16 +94,53 @@
             </form>
         </div>
         <div class="container">
-            <h4 class="mb-3" style="color: rgb(141, 224, 64);">Top reviews:</h4>
+            <% if(reviews.length){ %>
+            <h4 class="mb-3" style="color: rgb(213, 5, 255);">Top reviews:</h4>
             <div class="row">
                 <div class="col"> 
                     <% for(let Review of reviews){ %>
-                        <h4 class="panel px-3 py-1">Username:</h4>
+                        
+                        <h5 class="panel">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                <i class="fa fa-user fa-stack-1x"></i>
+                            </span>
+                            <%= Review.user.username %></h5>
                         <h5 class="alert alert-light"><%= Review.review %></h5>
                     <% } %>
                 </div>       
                 <div class="col-2"></div>
             </div>
+            <% } else{%>
+                <h4 class="mb-3" style="color: rgb(213, 5, 255);">No reviews yet</h4>
+                <% } %>
         </div>
     </div>
+</div>
+
+<div class="contain">
+    <% if(similar.length){ %>
+    <h3 class="my-4">Similar:</h3>
+    <div class="box">
+        <% for(let movie of similar){ %>
+            <% if(movie.title){ %>
+            <a class="contents overflow-hidden"  style="background-image: url('https://image.tmdb.org/t/p/w300<%=movie.poster_path%>');" href="/search/movie/<%=movie.id%>">
+                <div class="details m-4">
+                    <h5><%= movie.title %></h5>
+                    <h5 style="color: turquoise;"><%= movie.vote_average %>/10</h5>
+                    <p><%= movie.overview %></p>
+                </div>
+            </a>
+            <% }else{ %>
+                <a class="contents overflow-hidden"  style="background-image: url('https://image.tmdb.org/t/p/w300<%=movie.poster_path%>');" href="/search/movie/<%=movie.id%>">
+                    <div class="details m-4">
+                        <h5><%= movie.name %></h5>
+                        <h5 style="color: turquoise;"><%= movie.vote_average %>/10</h5>
+                        <p><%= movie.overview %></p>
+                    </div>
+                </a>
+                <% } %>
+        <% } %>
+    </div>
+    <% } %>
 </div>

@@ -1,47 +1,56 @@
 <% layout('../layouts/boilerplate1')%>
 
-<h3 class="m-3">Trending movies:</h3>
-<div class="content">  
-  <% for(let movie of trendingMovies){ %>
-    <% if(movie.title){ %>
-      <a href="/search/movie/<%=movie.id%>">
-        <img src="https://image.tmdb.org/t/p/w300<%=movie.poster_path%>" alt="">
-          <div class="details overflow-hidden">
-            <h5><%= movie.title %></h5>
-            <p><%= movie.overview %></p>
-          </div>
-      </a>
-      <% } else{%>
-        <a href="/search/tv/<%=movie.id%>">
-          <img src="https://image.tmdb.org/t/p/w300<%=movie.poster_path%>" alt="">
-            <div class="details overflow-hidden">
-              <h5><%= movie.name %></h5>
-              <p><%= movie.overview %></p>
-            </div>
-        </a>
-      <% } %>  
-  <% } %>
+
+
+<div class="contain">
+ 
+  <h3 class="my-4">Popular movies:</h3>
+  <div class="box">
+      <% for(let movie of popularMovies){ %>
+          <a class="content overflow-hidden"  style="background-image: url('https://image.tmdb.org/t/p/w300<%=movie.poster_path%>');" href="/search/movie/<%=movie.id%>">
+              <div class="details m-4">
+                  <h5><%= movie.title %></h5>
+                  <h5 style="color: turquoise;"><%= movie.vote_average %>/10</h5>
+                  <p><%= movie.overview %></p>
+              </div>
+          </a>
+      <% } %>
+  </div>
+  <h3 class="my-4">Action movies:</h3>
+  <div class="box">
+      <% for(let movie of actionMovies){ %>
+          <a class="content overflow-hidden"  style="background-image: url('https://image.tmdb.org/t/p/w300<%=movie.poster_path%>');" href="/search/movie/<%=movie.id%>">
+              <div class="details m-4">
+                  <h5><%= movie.title %></h5>
+                  <h5 style="color: turquoise;"><%= movie.vote_average %>/10</h5>
+                  <p><%= movie.overview %></p>
+              </div>
+          </a>
+      <% } %>
+  </div>
+  <h3 class="my-4">Comedy movies:</h3>
+  <div class="box">
+      <% for(let movie of comedyMovies){ %>
+          <a class="content overflow-hidden"  style="background-image: url('https://image.tmdb.org/t/p/w300<%=movie.poster_path%>');" href="/search/movie/<%=movie.id%>">
+              <div class="details m-4">
+                  <h5><%= movie.title %></h5>
+                  <h5 style="color: turquoise;"><%= movie.vote_average %>/10</h5>
+                  <p><%= movie.overview %></p>
+              </div>
+          </a>
+      <% } %>
+  </div>
+  <h3 class="my-4">Horror movies:</h3>
+  <div class="box">
+      <% for(let movie of horrorMovies){ %>
+          <a class="content overflow-hidden"  style="background-image: url('https://image.tmdb.org/t/p/w300<%=movie.poster_path%>');" href="/search/movie/<%=movie.id%>">
+              <div class="details m-4">
+                  <h5><%= movie.title %></h5>
+                  <h5 style="color: turquoise;"><%= movie.vote_average %>/10</h5>
+                  <p><%= movie.overview %></p>
+              </div>
+          </a>
+      <% } %>
+  </div>
 </div>
 
-<h3 class="m-3">Upcoming movies:</h3>
-<div class="content">  
-  <% for(let movie of upcomingMovies){ %>
-    <% if(movie.title){ %>
-      <a href="/search/movie/<%=movie.id%>">
-        <img src="https://image.tmdb.org/t/p/w300<%=movie.poster_path%>" alt="">
-          <div class="details overflow-hidden">
-            <h5><%= movie.title %></h5>
-            <p><%= movie.overview %></p>
-          </div>
-      </a>
-      <% } else{%>
-        <a href="/search/tv/<%=movie.id%>">
-          <img src="https://image.tmdb.org/t/p/w300<%=movie.poster_path%>" alt="">
-            <div class="details overflow-hidden">
-              <h5><%= movie.name %></h5>
-              <p><%= movie.overview %></p>
-            </div>
-        </a>
-      <% } %>  
-  <% } %>
-</div>

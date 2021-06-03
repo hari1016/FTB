@@ -1,11 +1,12 @@
 <% layout('../layouts/boilerplate3')%>
 
 <div class="container">
+    <%- include('../layouts/flash')  %>
     <h2 class="mb-3">Login</h2>
     <div class="form-group">
-        <form action="" method="post">
+        <form action="/login" method="post">
             <label for="username " class="form-label">User Name:</label>
-            <input class="form-control mb-3" type="text" name="usernmae" id="username" placeholder="User name">
+            <input class="form-control mb-3" type="text" name="username" id="username" placeholder="User name">
             <label for="password" class="form-label">Password:</label>
             <input class="form-control" type="password" name="password" id="password" placeholder="Password">
             <div class="col-12 my-4">

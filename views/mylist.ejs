@@ -3,10 +3,9 @@
 
 <div class="contain ">
     <h3 class="m-4">Movies in your list:</h3>
-    <div class="box box2 ">
+    <div class="box">
         <% for(let movie of list){ %>
             <% if(movie.type == "movie"){ %>
-                <div class="try"></div>
             <a class="content overflow-hidden "  style="background-image: url('https://image.tmdb.org/t/p/w300<%=movie.imlink%>');" href="/search/movie/<%=movie.mid%>">
                 <div class="details m-4">
                     <h5><%= movie.title %></h5>
@@ -18,7 +17,7 @@
         <% } %>
     </div>
     <h3 class="m-4">Tv shows in your list:</h3>
-    <div class="box box2" >
+    <div class="box" >
         <% for(let movie of list){ %>
             <% if(movie.type == "tv"){%>
             <a class="content overflow-hidden"  style="background-image: url('https://image.tmdb.org/t/p/w300<%=movie.imlink%>');" href="/search/tv/<%=movie.mid%>">

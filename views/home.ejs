@@ -3,7 +3,7 @@
 <div class="main">
   <img class="mainImage" src="https://image.tmdb.org/t/p/original<%=random.backdrop_path%>"/>
   <div class="overlay">
-    <h1 class="m-5" style="color: rgb(141, 224, 64);"><%= random.name %></h><br>
+    <h1 class="m-5" style="color: rgb(213, 5, 255);"><%= random.name %></h><br>
     <!-- <a class="my-3 mx-5" href="/search/tv/<%=random.id%>">Details</a> -->
     <form action="/search/tv/<%=random.id%>">
       <button class="btn btn-secondary my-4" type="submit">Details</button>
@@ -30,7 +30,7 @@
         <% } else{ %>  
           <a class="content overflow-hidden"  style="background-image: url('https://image.tmdb.org/t/p/w300<%=trending[i].poster_path%>');" href="/search/tv/<%=trending[i].id%>">
             <div class="details m-4">
-                <h5><%= trending[i].title %></h5>
+                <h5><%= trending[i].name %></h5>
                 <h5 style="color: turquoise;"><%= trending[i].vote_average %>/10</h5>
                 <p><%= trending[i].overview %></p>
             </div>
@@ -54,7 +54,7 @@
       <% } else{ %>  
         <a class="content overflow-hidden"  style="background-image: url('https://image.tmdb.org/t/p/w300<%=movie.poster_path%>');" href="/search/tv/<%=movie.id%>">
           <div class="details m-4">
-              <h5><%= movie.title %></h5>
+              <h5><%= movie.name %></h5>
               <h5 style="color: turquoise;"><%= movie.vote_average %>/10</h5>
               <p><%= movie.overview %></p>
           </div>
@@ -77,7 +77,7 @@
       <% } else{ %>  
         <a class="content overflow-hidden"  style="background-image: url('https://image.tmdb.org/t/p/w300<%=movie.poster_path%>');" href="/search/tv/<%=movie.id%>">
           <div class="details m-4">
-              <h5><%= movie.title %></h5>
+              <h5><%= movie.name %></h5>
               <h5 style="color: turquoise;"><%= movie.vote_average %>/10</h5>
               <p><%= movie.overview %></p>
           </div>
@@ -100,7 +100,7 @@
       <% } else{ %>  
         <a class="content overflow-hidden"  style="background-image: url('https://image.tmdb.org/t/p/w300<%=movie.poster_path%>');" href="/search/tv/<%=movie.id%>">
           <div class="details m-4">
-              <h5><%= movie.title %></h5>
+              <h5><%= movie.name %></h5>
               <h5 style="color: turquoise;"><%= movie.vote_average %>/10</h5>
               <p><%= movie.overview %></p>
           </div>

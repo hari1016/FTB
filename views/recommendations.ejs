@@ -1,0 +1,33 @@
+<% layout('../layouts/boilerplate1')%>
+
+<div class="contain ">
+    <h3 class="m-4">Recomended movies:</h3>
+    <div class="box">
+        <% for(let movie of recommended){ %>
+            <% if(movie.title){ %>
+            <a class="content overflow-hidden "  style="background-image: url('https://image.tmdb.org/t/p/w300<%=movie.poster_path%>');" href="/search/movie/<%=movie.id%>">
+                <div class="details m-4">
+                    <h5><%= movie.title %></h5>
+                    <h5 style="color: turquoise;"><%= movie.vote_average %>/10</h5>
+                    <p><%= movie.overview %></p>
+                </div>
+            </a>
+            <% } %>
+        <% } %>
+    </div>
+    <h3 class="m-4">Recommended TV shows:</h3>
+    <div class="box" >
+        <% for(let movie of recommended){ %>
+            <% if(movie.name){%>
+            <a class="content overflow-hidden"  style="background-image: url('https://image.tmdb.org/t/p/w300<%=movie.poster_path%>');" href="/search/tv/<%=movie.id%>">
+                <div class="details m-4">
+                    <h5><%= movie.name %></h5>
+                    <h5 style="color: turquoise;"><%= movie.vote_average %>/10</h5>
+                    <p><%= movie.overview %></p>
+                </div>
+            </a>
+            <% } %>
+        <% } %>
+    </div>
+
+</div>

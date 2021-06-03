@@ -1,9 +1,7 @@
 body{
     background-color: black;
 }
-.nav-item{
-    font-size: larger;
-}
+
 form{
     display: inline;
 }
@@ -67,13 +65,38 @@ form{
     height: 400px;
     transform: translateX(25px);
     transform: translateY(-25px);
-    border: solid 1px rgb(97, 255, 5);
+    border: solid 1px rgb(213, 5, 255);
 }
-.btn:hover{
-    color: rgb(97, 255, 5);
-}
+
 h3{
     padding-left: 5px;
-    border-left: solid 3px rgb(97, 255, 5);
+    border-left: solid 3px rgb(213, 5, 255);
     color: rgb(255, 255, 255);
 }
+
+button[type="submit"]{
+    background: none;
+    color: rgb(213, 5, 255);
+    border-color: rgb(213, 5, 255);
+}
+button[type="submit"]:hover{
+    background-color: rgb(213, 5, 255);
+    border-color: rgb(213, 5, 255);
+}
+.main .btn-secondary{
+    border-color: rgb(82, 82, 82);
+
+    background-color:rgb(110, 107, 107);
+    color: white;
+}
+.btn-secondary:hover{
+    background-color: rgb(213, 5, 255);
+    border-color: rgb(213, 5, 255);
+    color: white;
+}
+.fa-stack{
+    background-color: white;
+    border-radius: 50%;
+    color: black;
+    margin-left: 1em;
+  }
