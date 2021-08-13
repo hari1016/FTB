@@ -241,6 +241,11 @@ app.get('/search/movie/:id', isLoggedIn ,async (req,res) =>{
     const { id }=req.params;
     const reviews = await Review.find({mid:id}).populate('user');
     const inList = await List.find({mid:id,user: req.user.id});
+    const rating = await Rating.find({mid:id})
+    let sum=0,len = rating.length;
+    for(r of rating){
+        sum = sum + r.rating;
+    }
     var isInList;
     if(Object.keys(inList).length === 0){
         isInList = false;}
@@ -248,12 +253,17 @@ app.get('/search/movie/:id', isLoggedIn ,async (req,res) =>{
         isInList = true;}
     const searched = await fetchSearchedMovie(id);
     const similar = await fetchsimilarMovie(id);
-    res.render('details',{searched,reviews,isInList,similar});
+    res.render('details',{searched,reviews,isInList,similar,sum,len});
 })
 app.get('/search/tv/:id', isLoggedIn ,async (req,res) =>{
     const { id }=req.params;
     const reviews = await Review.find({mid:id}).populate('user');
     const inList = await List.find({mid:id,user: req.user.id});
+    const rating = await Rating.find({mid:id})
+    let sum=0,len = rating.length;
+    for(r of rating){
+        sum = sum + r.rating;
+    }
     var isInList;
     if(Object.keys(inList).length === 0){
         isInList = false;}
@@ -261,7 +271,7 @@ app.get('/search/tv/:id', isLoggedIn ,async (req,res) =>{
         isInList = true;}
     const searched = await fetchSearchedTv(id);
     const similar = await fetchsimilarTv(id);
-    res.render('details',{searched,reviews,isInList,similar});
+    res.render('details',{searched,reviews,isInList,similar,sum,len});
 })
 
 app.post('/search/movie/:id', isLoggedIn ,async (req,res) =>{

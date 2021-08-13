@@ -1,6 +1,7 @@
 <% layout('../layouts/boilerplate1')%>
 
 <div class="main">
+  <%- include('../layouts/flash')  %>
   <img class="mainImage" src="https://image.tmdb.org/t/p/original<%=random.backdrop_path%>"/>
   <div class="overlay">
     <h1 class="m-5" style="color: rgb(213, 5, 255);"><%= random.name %></h><br>

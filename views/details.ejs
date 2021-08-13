@@ -15,7 +15,7 @@
                     <h1 style="color: rgb(213, 5, 255);""><%= searched.name %></h1>
                 <% } %>
                 <h5><%= searched.release_date %></h5>
-                <h4 class="my-4" style="color: turquoise;"><%= searched.vote_average %>/10 (<span><%= searched.vote_count %> Votes</span>)</h4>
+                <h4 class="my-4" style="color: turquoise;"><%= (((searched.vote_average)*(searched.vote_count)+sum)/(searched.vote_count+len)).toFixed(1) %>/10 (<span><%= searched.vote_count+len %> Votes</span>)</h4>
                 <h5 ><%= searched.overview %></h5>
                 <% if(searched.title){ %>
                 <form action="/search/movie/<%=searched.id%>" method="post">
@@ -107,8 +107,11 @@
                             </span>
                             <%= Review.user.username %></h5>
                         <h5 class="alert alert-light"><%= Review.review %></h5>
+                        <% if(Review.user.username == currentUser.username){ %>
+                            <i class="fas fa-trash-alt"></i>
+                        <% } %>
                     <% } %>
-                </div>       
+                </div>   
                 <div class="col-2"></div>
             </div>
             <% } else{%>
